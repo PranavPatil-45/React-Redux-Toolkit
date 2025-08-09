@@ -1,42 +1,48 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { add , remove} from '../features/todoSlice';
+import { add, remove, update } from '../features/todoSlice';
 
 function TodoComponent() {
-    const [valueAdd, setvalueAdd] = useState('');
-    const dispatch = useDispatch();
-    const todos = useSelector((state) => state.todos.value);
+  const [input, setinput] = useState('');
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos.value);
 
-    const handleAddTodo = () => {
-        if (valueAdd.trim()) {
-            dispatch(add(valueAdd));
-            setvalueAdd('');
-        }
-    };
+  const handleAddTodo = () => {
+    if (input.trim()) {
+      dispatch(add(input));
+      setinput('');
+    }
+  };
 
-    return (
-        <div>
-            <h2>Todos:</h2>
+  const handleUpdateTodo = (index, status) => {
+    dispatch(update({ index, title: input || todos[index].title, status }));
+    setinput('');
+  };
 
-            <div>
-                <input
-                    type="text"
-                    value={valueAdd}
-                    onChange={(e) => setvalueAdd(e.target.value)}
-                />
-                <button onClick={handleAddTodo}>Add Todo</button>
-            </div>
+  return (
+    <div>
+      <h2>Todos:</h2>
 
-            <ul>
-                {todos.map((item, i) => (
-                    <li key={i}>
-                        {item.title} - {item.status ? 'Completed' : 'In Completed'}
-                         <button className="delete-btn" onClick={() => dispatch(remove(item.title))}>Remove</button>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+      <div>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setinput(e.target.value)}
+        />
+        <button onClick={handleAddTodo}>Add Todo</button>
+      </div>
+
+      <ul>
+        {todos.map((item, i) => (
+          <li key={i}>
+            {item.title} - {item.status ? 'Completed' : 'Incomplete'}
+            <button onClick={() => handleUpdateTodo(i, !item.status)}>Update</button>
+            <button onClick={() => dispatch(remove(i))}>Remove</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default TodoComponent;
