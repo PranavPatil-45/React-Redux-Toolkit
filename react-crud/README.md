@@ -1,12 +1,97 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📝 Redux Toolkit Todo App (CRUD) with Bootstrap UI
 
-Currently, two official plugins are available:
+[![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)  
+[![React](https://img.shields.io/badge/React-17%2B-blue.svg?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)  
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A **modern and responsive** Todo Application built using **React, Redux Toolkit, and Bootstrap 5**.  
+Supports **full CRUD operations** with a clean, minimal UI.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## ✨ Features
+- ➕ **Add Todo**
+- 🖊 **Update Todo**
+- ❌ **Delete Todo**
+- ✅ **Mark Complete / Incomplete**
+- 🎨 **Beautiful Bootstrap UI**
+- ⚡ **State Management with Redux Toolkit**
+
+---
+
+## 🏗 Redux Toolkit Flow
+
+`
+
+┌───────────────┐
+│   Component   │  dispatch(action)
+└───────┬───────┘
+│
+▼
+┌────────────────┐
+│   Reducer /    │  ← createSlice()
+│   Slice Logic  │
+└───────┬────────┘
+│
+▼
+┌────────────────┐
+│ Redux Store    │  ← configureStore()
+└───────┬────────┘
+│
+▼
+┌────────────────┐
+│   UI Updates   │  ← useSelector()
+└────────────────┘
+
+
+
+
+## 📷 Screenshot
+![App Screenshot](https://via.placeholder.com/900x450?text=Todo+App+Screenshot)
+
+---
+
+## 📂 Project Structure
+```
+
+src/
+│── Store/
+│   └── store.js
+│── features/
+│   └── todoSlice.js
+│── components/
+│   └── Todos.jsx
+│── App.js
+└── index.js
+
+
+
+
+
+
+---
+
+## 🛠 Tech Stack
+
+* **React** – UI Library
+* **Redux Toolkit** – State Management
+* **Bootstrap 5** – UI Styling
+
+---
+
+## 📚 Learning Resources
+
+* [Redux Toolkit Docs](https://redux-toolkit.js.org/)
+* [React Docs](https://react.dev/)
+* [Bootstrap Docs](https://getbootstrap.com/)
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+💡 *Simple, fast, and beautiful Todo app — built with Redux Toolkit & Bootstrap*
