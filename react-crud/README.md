@@ -47,13 +47,13 @@ Supports **full CRUD operations** with a clean, minimal UI.
 
 
 
-## 📷 Screenshot
-![App Screenshot](https://via.placeholder.com/900x450?text=Todo+App+Screenshot)
+##Video
 
+https://drive.google.com/file/d/1KOMp7FIWmMkLTdERz_gV5NbZWWWAZagZ/view?usp=sharing
 ---
 
 ## 📂 Project Structure
-```
+
 
 src/
 │── Store/
