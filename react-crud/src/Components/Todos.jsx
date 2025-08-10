@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { add, remove, update } from '../features/todoSlice';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { add, remove, update } from "../features/todoSlice";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function TodoComponent() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos.value);
 
   const handleAddTodo = () => {
     if (input.trim()) {
       dispatch(add(input));
-      setInput('');
+      setInput("");
     }
   };
 
   const handleUpdateTodo = (index, status) => {
     dispatch(update({ index, title: input || todos[index].title, status }));
-    setInput('');
+    setInput("");
   };
 
   return (
@@ -53,13 +53,11 @@ function TodoComponent() {
             className="list-group-item d-flex justify-content-between align-items-center"
           >
             <div>
-              <strong
-                className={item.status ? 'text-success' : 'text-danger'}
-              >
+              <strong className={item.status ? "text-success" : "text-danger"}>
                 {item.title}
               </strong>
               <span className="badge bg-secondary ms-2">
-                {item.status ? 'Completed' : 'Incomplete'}
+                {item.status ? "Completed" : "Incomplete"}
               </span>
             </div>
             <div>
@@ -67,7 +65,7 @@ function TodoComponent() {
                 className="btn btn-sm btn-warning me-2"
                 onClick={() => handleUpdateTodo(i, !item.status)}
               >
-                {item.status ? 'Mark Incomplete' : 'Mark Complete'}
+                {item.status ? "Mark Incomplete" : "Mark Complete"}
               </button>
               <button
                 className="btn btn-sm btn-danger"
