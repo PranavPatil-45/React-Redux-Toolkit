@@ -22,8 +22,13 @@ This project helps users manage stocks, update prices, and keep track of trades 
 🗄️ Backend: Node.js / Express (or your choice)
 
 🛢️ Database: MongoDB / MySQL / JSON Server (depending on your setup)
+
+
 ##Video Link
 https://drive.google.com/file/d/1qkyG1gzDu6bfP4CJwEUZtnHOYQ2sp2TW/view?usp=sharing
+[click here](https://drive.google.com/file/d/1qkyG1gzDu6bfP4CJwEUZtnHOYQ2sp2TW/view?usp=sharing)
+
+
 
 📂 Project Structure
 ├── src/             # Source code  
