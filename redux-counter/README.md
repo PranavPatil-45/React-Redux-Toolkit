@@ -1,12 +1,69 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Counter App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A simple **Counter Application** built with **Redux Toolkit** for state management. This app demonstrates the core concepts of Redux such as creating slices, dispatching actions, and reading state using selectors.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Increment the counter
+* Decrement the counter
+* Reset the counter to zero
+* State management handled with Redux Toolkit
+* Clean and minimal UI
+
+## Tech Stack
+
+* **React** for UI rendering
+* **Redux Toolkit** for state management
+* **JavaScript** for logic implementation
+* **CSS / Bootstrap** for styling (optional)
+
+## How It Works
+
+1. **Redux Slice**: A slice is created for the counter state containing actions for increment, decrement, and reset.
+2. **Store**: The slice reducer is added to the store for global state management.
+3. **React Components**: Components interact with the store using `useDispatch` to send actions and `useSelector` to read the counter value.
+
+## Project Structure
+
+```
+src/
+│── app/
+│   └── store.js        # Redux store configuration
+│── features/
+│   └── counterSlice.js # Counter slice with actions and reducer
+│── components/
+│   └── Counter.js      # Counter component with buttons and display
+│── App.js              # Main app component
+│── index.js            # Application entry point
+```
+
+## Available Actions
+
+* **Increment** → Increases counter value by 1
+* **Decrement** → Decreases counter value by 1
+* **Reset** → Sets counter value back to 0
+
+## Installation
+
+1. Clone or download the project files
+2. Install dependencies:
+
+   ```
+   npm install
+   ```
+3. Start the development server:
+
+   ```
+   npm start
+   ```
+
+## Usage
+
+* Click the **+** button to increase the counter
+* Click the **-** button to decrease the counter
+* Click **Reset** to set the counter back to zero
+
+---
+
