@@ -25,7 +25,7 @@ This project helps users manage stocks, update prices, and keep track of trades 
 
 
 ##Video Link
-https://drive.google.com/file/d/1qkyG1gzDu6bfP4CJwEUZtnHOYQ2sp2TW/view?usp=sharing
+
 [click here](https://drive.google.com/file/d/1qkyG1gzDu6bfP4CJwEUZtnHOYQ2sp2TW/view?usp=sharing)
 
 
@@ -44,7 +44,7 @@ https://drive.google.com/file/d/1qkyG1gzDu6bfP4CJwEUZtnHOYQ2sp2TW/view?usp=shari
 
 Clone the repo
 
-git clone https://github.com/your-username/stock-trading-crud.git
+
 cd stock-trading-crud
 
 
