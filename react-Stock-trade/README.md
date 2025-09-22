@@ -1,12 +1,83 @@
-# React + Vite
+📈 Stock Trading CRUD Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple CRUD (Create, Read, Update, Delete) application for managing stock trading operations.
+This project helps users manage stocks, update prices, and keep track of trades in a clean and structured way.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+➕ Add Stock – Create new stock entries with details.
 
-## Expanding the ESLint configuration
+📄 View Stocks – See all available stock records.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✏️ Edit Stock – Update stock details like price, name, and quantity.
+
+❌ Delete Stock – Remove stock from the list.
+
+🔍 Search & Filter – Quickly find specific stocks.
+
+🛠️ Tech Stack
+
+⚛️ Frontend: HTML, CSS, JavaScript (or React if you used it)
+
+🗄️ Backend: Node.js / Express (or your choice)
+
+🛢️ Database: MongoDB / MySQL / JSON Server (depending on your setup)
+
+
+##Video Link
+
+[click here](https://drive.google.com/file/d/1qkyG1gzDu6bfP4CJwEUZtnHOYQ2sp2TW/view?usp=sharing)
+
+
+
+📂 Project Structure
+├── src/             # Source code  
+│   ├── components/  # UI components  
+│   ├── services/    # API / DB services  
+│   ├── pages/       # App pages (CRUD screens)  
+│   └── App.js  
+├── public/          # Static files  
+├── package.json     # Dependencies  
+└── README.md        # Documentation  
+
+⚡ Installation & Setup
+
+Clone the repo
+
+
+cd stock-trading-crud
+
+
+Install dependencies
+
+npm install
+
+
+Start the development server
+
+npm start
+
+
+Open in browser 👉 http://localhost:3000
+
+
+
+Dashboard	Add Stock	Edit Stock
+📊	➕	✏️
+🤝 Contributing
+
+Contributions are always welcome!
+
+Fork the repo
+
+Create a new branch (feature-xyz)
+
+Commit changes
+
+Open a PR
+
+📜 License
+
+This project is licensed under the MIT License 📝.
+
+✨ Built with passion for learning and stock trading 💹
