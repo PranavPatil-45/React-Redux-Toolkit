@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signInUser } from "../../slices/userSlice";
+import "./SignIn.css"; // Import CSS file
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function SignIn() {
 
     try {
       const resultAction = await dispatch(signInUser({ email, password }));
-      
+
       if (signInUser.fulfilled.match(resultAction)) {
         navigate("/home");
       } else {
@@ -40,14 +41,24 @@ export default function SignIn() {
   }, [currentUser, navigate]);
 
   return (
-    <div>
-      <h1>Sign In Page</h1>
-      <input type="email" ref={emailRef} placeholder="Email" />
-      <input type="password" ref={passwordRef} placeholder="Password" />
-      <button onClick={handleSignIn} disabled={isLoading}>
-        {isLoading ? "Signing in..." : "Sign In"}
-      </button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="signin-container">
+      <div className="signin-card">
+        <h1 className="signin-title">Welcome Back 👋</h1>
+
+        <div className="signin-form">
+          <input type="email" ref={emailRef} placeholder="Email" />
+          <input type="password" ref={passwordRef} placeholder="Password" />
+          <button onClick={handleSignIn} disabled={isLoading}>
+            {isLoading ? "Signing in..." : "Sign In"}
+          </button>
+
+          {error && <p className="signin-error">{error}</p>}
+        </div>
+
+        <p className="signin-footer">
+          Don’t have an account? <span>Sign up</span>
+        </p>
+      </div>
     </div>
   );
 }
