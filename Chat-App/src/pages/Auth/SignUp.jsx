@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { addUser } from "../../slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { createChat } from "../../slices/ChatSlice";
 
 export default function SignUp() {
   const { currentUser } = useSelector((state) => state.users);
@@ -115,7 +114,7 @@ export default function SignUp() {
           </a>
         </p>
 
-        <button
+        {/* <button
           onClick={() => dispatch(createChat())}
           style={{
             marginTop: "10px",
@@ -128,7 +127,7 @@ export default function SignUp() {
           }}
         >
           Create Chat
-        </button>
+        </button> */}
       </div>
     </div>
   );
