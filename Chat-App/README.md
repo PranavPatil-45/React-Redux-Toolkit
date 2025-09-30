@@ -3,8 +3,7 @@
 📸 Screenshots
 
 Sign In Page	Chat Interface	User List
-https://via.placeholder.com/300x200/667eea/ffffff?text=Sign+In	https://via.placeholder.com/300x200/00a884/ffffff?text=Chat+UI	https://via.placeholder.com/300x200/111b21/ffffff?text=User+List
-</div>
+
 ✨ Features
 🔐 Authentication
 ✅ Google Authentication - Sign in with Google account
