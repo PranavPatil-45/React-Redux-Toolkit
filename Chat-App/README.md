@@ -1,19 +1,7 @@
 💬 WhatsApp Web Clone - React Redux Toolkit & Firebase
-<div align="center">
-https://img.shields.io/badge/React-18.2.0-blue?logo=react
-https://img.shields.io/badge/Redux_Toolkit-1.9.7-purple?logo=redux
-https://img.shields.io/badge/Firebase-9.23.0-orange?logo=firebase
-https://img.shields.io/badge/React_Router-6.8.0-red?logo=reactrouter
 
-A real-time chat application built with React, Redux Toolkit, and Firebase that mimics WhatsApp Web's functionality and design.
-
-https://img.shields.io/badge/%F0%9F%9A%80_Live_Demo-Click_Here-green?style=for-the-badge
-https://img.shields.io/badge/%F0%9F%90%9B_Report_Bug-Github_Issues-yellow?style=for-the-badge
-https://img.shields.io/badge/%F0%9F%92%A1_Request_Feature-Github_Issues-lightgrey?style=for-the-badge
-
-</div>
 📸 Screenshots
-<div align="center">
+
 Sign In Page	Chat Interface	User List
 https://via.placeholder.com/300x200/667eea/ffffff?text=Sign+In	https://via.placeholder.com/300x200/00a884/ffffff?text=Chat+UI	https://via.placeholder.com/300x200/111b21/ffffff?text=User+List
 </div>
