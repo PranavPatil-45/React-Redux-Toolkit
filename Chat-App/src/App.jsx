@@ -26,12 +26,9 @@ function App() {
         />
         <Route 
           path="/signup" 
-          element={
-            !currentUser ? <SignUp /> : <Navigate to="/home" replace />
-          } 
+          element={<SignUp />}
         />
         
-       
         <Route 
           path="/home" 
           element={

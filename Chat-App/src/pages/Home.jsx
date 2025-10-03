@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout, fetchUsers } from '../slices/userSlice';
 import { useNavigate } from 'react-router-dom';
@@ -10,10 +10,21 @@ export default function Home() {
   const navigate = useNavigate();
   const [selectedUser, setSelectedUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [messageText, setMessageText] = useState('');
+  const [messages, setMessages] = useState([]); 
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const filteredUsers = users.filter(user => 
     user.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -23,6 +34,33 @@ export default function Home() {
   const handleLogout = () => {
     dispatch(logout());
     navigate('/signin');
+  };
+
+  const handleSendMessage = () => {
+    if (!messageText.trim() || !selectedUser) return;
+
+    const newMessage = {
+      id: Date.now().toString(), 
+      text: messageText.trim(),
+      senderId: currentUser.id,
+      senderName: currentUser.name || currentUser.email,
+      timestamp: new Date(),
+      isLocal: true 
+    };
+
+    setMessages(prevMessages => [...prevMessages, newMessage]);
+    
+    setMessageText('');
+
+   
+    console.log('Message sent:', newMessage);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
   };
 
   const formatTime = (date) => {
@@ -76,7 +114,10 @@ export default function Home() {
               <div
                 key={user.id}
                 className={`user-item ${selectedUser?.id === user.id ? 'active' : ''}`}
-                onClick={() => setSelectedUser(user)}
+                onClick={() => {
+                  setSelectedUser(user);
+                  setMessages([]); 
+                }}
               >
                 <div className="user-avatar">
                   {user.name?.charAt(0) || user.email?.charAt(0)}
@@ -120,18 +161,36 @@ export default function Home() {
             </div>
 
             <div className="messages-container">
-              <div className="welcome-message">
-                <div className="welcome-avatar">
-                  {selectedUser.name?.charAt(0) || selectedUser.email?.charAt(0)}
+              {messages.length === 0 ? (
+                <div className="welcome-message">
+                  <div className="welcome-avatar">
+                    {selectedUser.name?.charAt(0) || selectedUser.email?.charAt(0)}
+                  </div>
+                  <div className="welcome-text">
+                    <h3>{selectedUser.name || selectedUser.email}</h3>
+                    <p>Say hello to start chatting!</p>
+                  </div>
                 </div>
-                <div className="welcome-text">
-                  <h3>{selectedUser.name || selectedUser.email}</h3>
-                  <p>Say hello to start chatting!</p>
+              ) : (
+                <div className="message-list">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`message ${
+                        message.senderId === currentUser.id ? 'sent' : 'received'
+                      }`}
+                    >
+                      <div className="message-content">
+                        <div className="message-text">{message.text}</div>
+                        <div className="message-time">
+                          {formatTime(message.timestamp)}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  <div ref={messagesEndRef} />
                 </div>
-              </div>
-              
-              <div className="message-list">
-              </div>
+              )}
             </div>
 
             <div className="message-input-container">
@@ -146,9 +205,17 @@ export default function Home() {
               <input
                 type="text"
                 placeholder="Type a message"
+                value={messageText}
+                onChange={(e) => setMessageText(e.target.value)}
+                onKeyPress={handleKeyPress}
                 className="message-input"
               />
-              <button className="send-btn" title="Send message">
+              <button 
+                className="send-btn" 
+                onClick={handleSendMessage}
+                disabled={!messageText.trim()}
+                title="Send message"
+              >
                 <span className="material-icons">send</span>
               </button>
             </div>
@@ -171,9 +238,8 @@ export default function Home() {
         )}
       </div>
 
-     
       <button className="logout-btn" onClick={handleLogout} title="Logout">
-        <span  className="material-icons">logout</span>
+        <span className="material-icons">logout</span>
       </button>
     </div>
   );

@@ -163,7 +163,6 @@ const userSlice = createSlice({
       .addCase(addUser.fulfilled, (state, action) => {
         if (action.payload) {
           const user = action.payload;
-          state.currentUser = user;
           state.users.push(user);
         }
         state.isLoading = false;

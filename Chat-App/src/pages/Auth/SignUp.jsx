@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import { addUser } from "../../slices/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function SignUp() {
-  const { currentUser } = useSelector((state) => state.users);
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -13,7 +12,14 @@ export default function SignUp() {
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+    
     dispatch(addUser({ name, email, password }));
+    
+    alert("User added successfully!");
+    
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
   };
 
   return (
@@ -38,11 +44,7 @@ export default function SignUp() {
         }}
       >
         <h1 style={{ marginBottom: "20px", color: "#333" }}>Sign Up</h1>
-        {currentUser?.id && (
-          <h2 style={{ fontSize: "14px", color: "green" }}>
-            User ID: {currentUser.id}
-          </h2>
-        )}
+        
         <input
           type="text"
           placeholder="Name"
@@ -113,21 +115,6 @@ export default function SignUp() {
             Sign In
           </a>
         </p>
-
-        {/* <button
-          onClick={() => dispatch(createChat())}
-          style={{
-            marginTop: "10px",
-            padding: "10px 20px",
-            background: "#f4f4f4",
-            border: "1px solid #ccc",
-            borderRadius: "6px",
-            cursor: "pointer",
-            fontSize: "14px",
-          }}
-        >
-          Create Chat
-        </button> */}
       </div>
     </div>
   );
