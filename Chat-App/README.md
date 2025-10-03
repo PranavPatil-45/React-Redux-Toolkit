@@ -1,6 +1,6 @@
 💬 WhatsApp Web Clone - React Redux Toolkit & Firebase
-
-📸 Screenshots
+Video Link
+https://drive.google.com/file/d/1FyX4QDnLR1QxZhR5Eupzai845AUI-luE/view?usp=sharing
 
 Sign In Page	Chat Interface	User List
 
